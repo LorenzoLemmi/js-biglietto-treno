@@ -11,12 +11,20 @@ let price;
 
 if (isNaN(km) || (km == 0) || isNaN(age) || (age == 0)) {
     alert("Inserisci un numero maggiore di 0 sia per il chilometraggio che per l'età")
+
+//- va applicato uno sconto del 20% per i minorenni
 } else if (age <=17) {
     price = ((km * 0.21) - [(km * 0.21) / 100 * 20])
+
+//- va applicato uno sconto del 40% per gli over 65
 } else if (age >=65) {
     price = ((km * 0.21) - [(km * 0.21) / 100 * 40])
+
+//- il prezzo del biglietto è definito in base ai km (0.21 € al km)
 } else {
     price = (km * 0.21)
 };
 
+
+//- L’output del prezzo finale va messo fuori in forma umana (con massimo due decimali, per indicare centesimi sul prezzo). Questo richiederà un minimo di ricerca.
 const roundedPrice = alert(`€ ${price.toFixed(2).replace(".", ",")}`);
